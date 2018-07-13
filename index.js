@@ -23,10 +23,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+// check route 1
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
+// check route 2
 if (process.env.NODE_ENV === 'production') {
     //Express will serve up production assets 
     //like our main.js file, or main.css file
@@ -40,4 +41,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);//localhost:5000 
+app.listen(PORT);//localhost:5000
