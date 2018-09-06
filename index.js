@@ -9,7 +9,12 @@ require('./models/Survey');
 require('./services/passport');
 
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true }).then(() => {
+    console.log("Connected to Database");
+}).catch((err) => {
+    console.log("ERROR! Not Connected to Database ", err);
+});
+
 
 const app = express();
 
